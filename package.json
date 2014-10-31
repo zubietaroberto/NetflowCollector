@@ -1,6 +1,6 @@
 {
   "name": "Netflow-Collector",
-  "version": "0.0.0",
+  "version": "0.0.0-alpha",
   "main": "main.json" ,
   "dependencies": {
     "public": "git://github.com/Sghazzawi/Node-Netflowd.git"
