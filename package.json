@@ -1,5 +1,5 @@
 {
-  "name": "nodetest",
+  "name": "Netflow-Collector",
   "version": "0.0.0",
   "private": true,
   "manin": "main.json" ,
