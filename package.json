@@ -1,0 +1,9 @@
+{
+  "name": "nodetest",
+  "version": "0.0.0",
+  "private": true,
+  "manin": "main.json" ,
+  "dependencies": {
+    "public": "git://github.com/Sghazzawi/Node-Netflowd.git"
+  }
+}
