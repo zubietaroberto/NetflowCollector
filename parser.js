@@ -1,10 +1,20 @@
 
+var fieldDictionary = require('./dictionary.js')
+
 /*
 Templates
 */
 function parseTemplates(templateObject){
 	templateObject.templates.forEach(function(element, index, array){
 		console.log("Template for " + element.id + ": " + element.fields.length + " fields")
+
+		element.fields.forEach(function(field, index2, array2){
+			var fieldType = fieldDictionary[field.fieldLength]
+
+			if (fieldType != 'null'){
+				console.log(fieldType)
+			}
+		})
 	})
 }
 
