@@ -11,6 +11,9 @@ Description*/
 
 var fields = new Array()
 
+//Common decode functions, used by several fields
+var decoders = require('./field_decoder.js')
+
 /*
 IN_BYTES
 1
@@ -99,7 +102,10 @@ IPv4 source address
 */
 fields[8] = {
 	length: 4,
-	name: 'IPV4_SRC_ADDR'
+	name: 'IPV4_SRC_ADDR',
+
+	// Decodes to IPv4
+	decode: decoders.decodeIPv4
 }
 
 /*

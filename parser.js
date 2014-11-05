@@ -26,7 +26,7 @@ function parseTemplates(templateObject){
 				//Add to the array a new object, a copy of the dictionary's one.
 				templateFields[index2] = {
 					length: field.fieldLength,
-					type: field.fieldType,
+					decode: dictionaryElement.decode,
 					name: dictionaryElement.name
 				}
 			}
@@ -51,13 +51,45 @@ function parseOptions(optionsObject){
 Flowset Data
 */
 function parseFlowset(flowsetObject){
+
+	//Log
 	console.log("Flowset " + flowsetObject.flowset_id + ": Length " + flowsetObject.length)
+
+	// Return the result as an array, with each field's name and each field's value
+	var result = new Array()
 
 	// Get the correponding template, if it exists.
 	var templateFields = templateArray[flowsetObject.flowset_id]
 	if (typeof templateFields !== 'undefined'){
-		console.log(templateFields)
+
+		var currentPosition = 0
+
+		// Iterate through the fields
+		templateFields.forEach(function(field, index, array){
+
+			// Get the raw data corresponding to this field
+			var currentBuffer = flowsetObject.flowdata.slice(currentPosition, currentPosition+field.length)
+
+			//Build the corresponding result object
+			result[index] = {}
+			result[index].name = field.name
+
+			// Parse the field, if we have a 'decode' function available
+			if (typeof field.decode !== 'undefined'){
+				result[index].value = field.decode(currentBuffer)
+			} else {
+				result[index].value = currentBuffer
+			}
+
+			//Move the counter
+			currentPosition = currentPosition + field.length
+		})
+
+		//Log the result
+		console.log(result)
 	} else {
+
+		//No data yet
 		console.log("template not found")
 	}
 }
