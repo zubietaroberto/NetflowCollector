@@ -22,7 +22,11 @@ Incoming counter with length N x 8 bits for number of bytes associated with an I
 */
 fields[1] = {
 	length: 4,
-	name: 'IN_BYTES'
+	name: 'IN_BYTES',
+
+	//Possibility that this field is too big for javascript
+	//to Handle. We will output it as a Hex for now...
+	decode: decoders.decodeToHex
 }
 
 /*
@@ -33,7 +37,11 @@ Incoming counter with length N x 8 bits for the number of packets associated wit
 */
 fields[2] = {
 	length: 4,
-	name: 'IN_PKTS'
+	name: 'IN_PKTS',
+
+	//Possibility that this field is too big for javascript
+	//to Handle. We will output it as a Hex for now...
+	decode: decoders.decodeToHex
 }
 
 
@@ -45,7 +53,11 @@ Number of flows that were aggregated; default for N is 4
 */
 fields[3] = {
 	length: 4,
-	name: 'FLOWS'
+	name: 'FLOWS',
+
+	//Possibility that this field is too big for javascript
+	//to Handle. We will output it as a Hex for now...
+	decode: decoders.decodeToHex
 }
 
 
@@ -57,7 +69,8 @@ IP protocol byte
 */
 fields[4] = {
 	length: 1,
-	name: 'PROTOCOL'
+	name: 'PROTOCOL',
+	decode: decoders.decodeUInt8
 }
 
 
@@ -69,7 +82,8 @@ Type of Service byte setting when entering incoming interface
 */
 fields[5] = {
 	length: 1,
-	name: 'SRC_TOS'
+	name: 'SRC_TOS',
+	decode: decoders.decodeTOS
 }
 
 /*
@@ -91,7 +105,8 @@ TCP/UDP source port number i.e.: FTP, Telnet, or equivalent
 */
 fields[7] = {
 	length: 2,
-	name: 'L4_SRC_PORT'
+	name: 'L4_SRC_PORT',
+	decode: decoders.decodeUInt16
 }
 
 /*
@@ -116,7 +131,10 @@ The number of contiguous bits in the source address subnet mask i.e.: the submas
 */
 fields[9] = {
 	length: 1,
-	name: 'SRC_MASK'
+	name: 'SRC_MASK',
+
+	// Decodes to IPv4
+	decode: decoders.decodeIPv4
 }
 
 /*
@@ -138,7 +156,8 @@ TCP/UDP destination port number i.e.: FTP, Telnet, or equivalent
 */
 fields[11] = {
 	length: 2,
-	name: 'L4_DST_PORT'
+	name: 'L4_DST_PORT',
+	decode: decoders.decodeUInt16
 }
 
 /*
@@ -149,7 +168,10 @@ IPv4 destination address
 */
 fields[12] = {
 	length: 2,
-	name: 'IPV4_DST_ADDR'
+	name: 'IPV4_DST_ADDR',
+	
+	// Decodes to IPv4
+	decode: decoders.decodeIPv4
 }
 
 /*
@@ -160,7 +182,10 @@ The number of contiguous bits in the destination address subnet mask i.e.: the s
 */
 fields[13] = {
 	length: 1,
-	name: 'DST_MASK'
+	name: 'DST_MASK',
+	
+	// Decodes to IPv4
+	decode: decoders.decodeIPv4
 }
 
 /*
@@ -182,7 +207,10 @@ IPv4 address of next-hop router
 */
 fields[15] = {
 	length: 4,
-	name: 'IPV4_NEXT_HOP'
+	name: 'IPV4_NEXT_HOP',
+	
+	// Decodes to IPv4
+	decode: decoders.decodeIPv4
 }
 
 /*
@@ -193,7 +221,10 @@ Source BGP autonomous system number where N could be 2 or 4
 */
 fields[16] = {
 	length: 2,
-	name: 'SRC_AS'
+	name: 'SRC_AS',
+
+	//Decodes into BGP AS
+	decode: decoders.decodeBGP_AS
 }
 
 /*
@@ -204,7 +235,10 @@ Destination BGP autonomous system number where N could be 2 or 4
 */
 fields[17] = {
 	length: 2,
-	name: 'DST_AS'
+	name: 'DST_AS',
+
+	//Decodes into BGP AS
+	decode: decoders.decodeBGP_AS
 }
 
 /*
@@ -215,7 +249,10 @@ Next-hop router's IP in the BGP domain
 */
 fields[18] = {
 	length: 4,
-	name: 'BGP_IPV4_NEXT_HOP'
+	name: 'BGP_IPV4_NEXT_HOP',
+	
+	// Decodes to IPv4
+	decode: decoders.decodeIPv4
 }
 
 /*
@@ -226,7 +263,12 @@ IP multicast outgoing packet counter with length N x 8 bits for packets associat
 */
 fields[19] = {
 	length: 4,
-	name: 'MUL_DST_PKTS'
+	name: 'MUL_DST_PKTS',
+
+	//Possibility that this field is too big for javascript
+	//to Handle. We will output it as a Hex for now...
+	decode: decoders.decodeToHex
+
 }
 
 /*
@@ -237,7 +279,11 @@ IP multicast outgoing byte counter with length N x 8 bits for bytes associated w
 */
 fields[20] = {
 	length: 4,
-	name: 'MUL_DST_BYTES'
+	name: 'MUL_DST_BYTES',
+
+	//Possibility that this field is too big for javascript
+	//to Handle. We will output it as a Hex for now...
+	decode: decoders.decodeToHex
 }
 
 /*
@@ -248,7 +294,11 @@ System uptime at which the last packet of this flow was switched
 */
 fields[21] = {
 	length: 4,
-	name: 'LAST_SWITCHED'
+	name: 'LAST_SWITCHED',
+
+	//Decodes into time
+	decode: decoders.decodeTime
+
 }
 
 /*
@@ -259,7 +309,10 @@ System uptime at which the first packet of this flow was switched
 */
 fields[22] = {
 	length: 4,
-	name: 'FIRST_SWITCHED'
+	name: 'FIRST_SWITCHED',
+
+	//Decodes into time
+	decode: decoders.decodeTime
 }
 
 /*
@@ -270,7 +323,11 @@ Outgoing counter with length N x 8 bits for the number of bytes associated with 
 */
 fields[23] = {
 	length: 4,
-	name: 'OUT_BYTES'
+	name: 'OUT_BYTES',
+
+	//Possibility that this field is too big for javascript
+	//to Handle. We will output it as a Hex for now...
+	decode: decoders.decodeToHex
 }
 
 /*
@@ -281,7 +338,11 @@ Outgoing counter with length N x 8 bits for the number of packets associated wit
 */
 fields[24] = {
 	length: 4,
-	name: 'OUT_PKTS'
+	name: 'OUT_PKTS',
+
+	//Possibility that this field is too big for javascript
+	//to Handle. We will output it as a Hex for now...
+	decode: decoders.decodeToHex
 }
 
 /*
@@ -292,7 +353,10 @@ Minimum IP packet length on incoming packets of the flow
 */
 fields[25] = {
 	length: 2,
-	name: 'MIN_PKT_LNGTH'
+	name: 'MIN_PKT_LNGTH',
+
+	//Decodes into UInt16
+	decode: decoders.decodeUInt16
 }
 
 /*
@@ -303,7 +367,10 @@ Maximum IP packet length on incoming packets of the flow
 */
 fields[26] = {
 	length: 2,
-	name: 'MAX_PKT_LNGTH'
+	name: 'MAX_PKT_LNGTH',
+
+	//Decodes into UInt16
+	decode: decoders.decodeUInt16
 }
 
 /*
@@ -314,7 +381,10 @@ IPv6 Source Address
 */
 fields[27] = {
 	length: 16,
-	name: 'IPV6_SRC_ADDR'
+	name: 'IPV6_SRC_ADDR',
+
+	//Decodes into IPv6
+	decode: decoders.decodeIPv6
 }
 
 /*
@@ -325,7 +395,10 @@ IPv6 Destination Address
 */
 fields[28] = {
 	length: 16,
-	name: 'IPV6_DST_ADDR'
+	name: 'IPV6_DST_ADDR',
+
+	//Decodes into IPv6
+	decode: decoders.decodeIPv6
 }
 
 /*
@@ -336,7 +409,10 @@ Length of the IPv6 source mask in contiguous bits
 */
 fields[29] = {
 	length: 1,
-	name: 'IPV6_SRC_MASK'
+	name: 'IPV6_SRC_MASK',
+
+	//Decode into UInt8
+	decode: decoders.decodeUInt8
 }
 
 /*
@@ -347,7 +423,10 @@ Length of the IPv6 destination mask in contiguous bits
 */
 fields[30] = {
 	length: 1,
-	name: 'IPV6_DST_MASK'
+	name: 'IPV6_DST_MASK',
+
+	//Decode into UInt8
+	decode: decoders.decodeUInt8
 }
 
 /*
@@ -358,7 +437,11 @@ IPv6 flow label as per RFC 2460 definition
 */
 fields[31] = {
 	length: 3,
-	name: 'IPV6_FLOW_LABEL'
+	name: 'IPV6_FLOW_LABEL',
+
+	//Decoded to Hex, Source:
+	//http://ipv6.com/articles/general/IPv6-Header.htm
+	decode: decoders.decodeToHex
 }
 
 /*
@@ -369,7 +452,10 @@ Internet Control Message Protocol (ICMP) packet type; reported as ((ICMP Type*25
 */
 fields[32] = {
 	length: 2,
-	name: 'ICMP_TYPE'
+	name: 'ICMP_TYPE',
+
+	//Decoded to UInt16
+	decode: decoders.decodeUInt16
 }
 
 /*
@@ -380,7 +466,10 @@ Internet Group Management Protocol (IGMP) packet type
 */
 fields[33] = {
 	length: 1,
-	name: 'MUL_IGMP_TYPE'
+	name: 'MUL_IGMP_TYPE',
+
+	//Decoded to UInt8
+	decode: decoders.decodeUInt8
 }
 
 /*
@@ -391,7 +480,10 @@ When using sampled NetFlow, the rate at which packets are sampled i.e.: a value 
 */
 fields[34] = {
 	length: 4,
-	name: 'SAMPLING_INTERVAL'
+	name: 'SAMPLING_INTERVAL',
+
+	//Decoded to UInt32
+	decode: decoders.decodeUInt32
 }
 
 /*
@@ -402,7 +494,10 @@ The type of algorithm used for sampled NetFlow: 0x01 Deterministic Sampling ,0x0
 */
 fields[35] = {
 	length: 1,
-	name: 'SAMPLING_ALGORITHM'
+	name: 'SAMPLING_ALGORITHM',
+
+	//Decoded to Hex
+	decode: decoders.decodeToHex
 }
 
 /*
@@ -413,7 +508,10 @@ Timeout value (in seconds) for active flow entries in the NetFlow cache
 */
 fields[36] = {
 	length: 2,
-	name: 'FLOW_ACTIVE_TIMEOUT'
+	name: 'FLOW_ACTIVE_TIMEOUT',
+
+	//Decode to UInt16
+	decode: decoders.decodeUInt16
 }
 
 /*
@@ -424,7 +522,10 @@ Timeout value (in seconds) for inactive flow entries in the NetFlow cache
 */
 fields[37] = {
 	length: 2,
-	name: 'FLOW_INACTIVE_TIMEOUT'
+	name: 'FLOW_INACTIVE_TIMEOUT',
+
+	//Decode to UInt16
+	decode: decoders.decodeUInt16
 }
 
 /*
@@ -435,7 +536,10 @@ Type of flow switching engine: RP = 0, VIP/Linecard = 1
 */
 fields[38] = {
 	length: 1,
-	name: 'ENGINE_TYPE'
+	name: 'ENGINE_TYPE',
+
+	//Decode to UInt8
+	decode: decoders.decodeUInt8
 }
 
 /*
@@ -446,7 +550,10 @@ ID number of the flow switching engine
 */
 fields[39] = {
 	length: 1,
-	name: 'ENGINE_ID'
+	name: 'ENGINE_ID',
+
+	//Decode to UInt8
+	decode: decoders.decodeUInt8
 }
 
 /*
@@ -457,7 +564,11 @@ Counter with length N x 8 bits for bytes for the number of bytes exported by the
 */
 fields[40] = {
 	length: 4,
-	name: 'TOTAL_BYTES_EXP'
+	name: 'TOTAL_BYTES_EXP',
+
+	//Possibility that this field is too big for javascript
+	//to Handle. We will output it as a Hex for now...
+	decode: decoders.decodeToHex
 }
 
 /*
@@ -468,7 +579,11 @@ Counter with length N x 8 bits for bytes for the number of packets exported by t
 */
 fields[41] = {
 	length: 4,
-	name: 'TOTAL_PKTS_EXP'
+	name: 'TOTAL_PKTS_EXP',
+
+	//Possibility that this field is too big for javascript
+	//to Handle. We will output it as a Hex for now...
+	decode: decoders.decodeToHex
 }
 
 /*
@@ -479,7 +594,11 @@ Counter with length N x 8 bits for bytes for the number of flows exported by the
 */
 fields[42] = {
 	length: 4,
-	name: ''
+	name: 'TOTAL_FLOWS_EXP',
+
+	//Possibility that this field is too big for javascript
+	//to Handle. We will output it as a Hex for now...
+	decode: decoders.decodeToHex
 }
 
 /*
@@ -500,7 +619,10 @@ IPv4 source address prefix (specific for Catalyst architecture)
 */
 fields[44] = {
 	length: 4,
-	name: 'IPV4_SRC_PREFIX'
+	name: 'IPV4_SRC_PREFIX',
+
+	// Decode to Hex
+	decode: decoders.decodeToHex
 }
 
 /*
@@ -511,7 +633,10 @@ IPv4 destination address prefix (specific for Catalyst architecture)
 */
 fields[45] = {
 	length: 4,
-	name: 'IPV4_DST_PREFIX'
+	name: 'IPV4_DST_PREFIX',
+
+	// Decode to Hex
+	decode: decoders.decodeToHex
 }
 
 /*
@@ -522,7 +647,10 @@ MPLS Top Label Type: 0x00 UNKNOWN 0x01 TE-MIDPT 0x02 ATOM 0x03 VPN 0x04 BGP 0x05
 */
 fields[46] = {
 	length: 1,
-	name: 'MPLS_TOP_LABEL_TYPE'
+	name: 'MPLS_TOP_LABEL_TYPE',
+
+	// Decode to Hex
+	decode: decoders.decodeToHex
 }
 
 /*
@@ -533,7 +661,10 @@ Forwarding Equivalent Class corresponding to the MPLS Top Label
 */
 fields[47] = {
 	length: 4,
-	name: 'MPLS_TOP_LABEL_IP_ADDR'
+	name: 'MPLS_TOP_LABEL_IP_ADDR',
+
+	// Decode to Hex
+	decode: decoders.decodeToIPv4
 }
 
 /*
@@ -544,7 +675,10 @@ Identifier shown in "show flow-sampler"
 */
 fields[48] = {
 	length: 1,
-	name: 'FLOW_SAMPLER_ID'
+	name: 'FLOW_SAMPLER_ID',
+
+	//Decode to UInt8
+	decode: decoders.decodeUInt8
 }
 
 /*
@@ -555,7 +689,10 @@ The type of algorithm used for sampling data: 0x02 random sampling. Use in conne
 */
 fields[49] = {
 	length: 1,
-	name: 'FLOW_SAMPLER_MODE'
+	name: 'FLOW_SAMPLER_MODE',
+
+	//Decode to UInt8
+	decode: decoders.decodeUInt8
 }
 
 /*
@@ -566,7 +703,10 @@ Packet interval at which to sample. Use in connection with FLOW_SAMPLER_MODE
 */
 fields[50] = {
 	length: 4,
-	name: 'FLOW_SAMPLER_RANDOM_INTERVAL'
+	name: 'FLOW_SAMPLER_RANDOM_INTERVAL',
+
+	//Decode to UInt32
+	decode: decoders.decodeUInt32
 }
 
 /*
@@ -587,7 +727,10 @@ Minimum TTL on incoming packets of the flow
 */
 fields[52] = {
 	length: 1,
-	name: 'MIN_TTL'
+	name: 'MIN_TTL',
+
+	//Decode to UInt8
+	decode: decoders.decodeUInt8
 }
 
 /*
@@ -598,7 +741,10 @@ Maximum TTL on incoming packets of the flow
 */
 fields[53] = {
 	length: 1,
-	name: 'MAX_TTL'
+	name: 'MAX_TTL',
+
+	//Decode to UInt8
+	decode: decoders.decodeUInt8
 }
 
 /*
@@ -609,7 +755,10 @@ The IP v4 identification field
 */
 fields[54] = {
 	length: 2,
-	name: 'IPV4_IDENT'
+	name: 'IPV4_IDENT',
+
+	//Decode to UInt16
+	decode: decoders.decodeUInt16
 }
 
 /*
@@ -620,7 +769,10 @@ Type of Service byte setting when exiting outgoing interface
 */
 fields[55] = {
 	length: 1,
-	name: 'DST_TOS'
+	name: 'DST_TOS',
+
+	//Decode to UInt8
+	decode: decoders.decodeUInt8
 }
 
 /*
@@ -631,7 +783,10 @@ Incoming source MAC address
 */
 fields[56] = {
 	length: 6,
-	name: 'IN_SRC_MAC'
+	name: 'IN_SRC_MAC',
+
+	//Decode to MAC Address
+	decode: decoders.decodeToMACAddress
 }
 
 /*
@@ -642,7 +797,10 @@ Outgoing destination MAC address
 */
 fields[57] = {
 	length: 6,
-	name: 'OUT_DST_MAC'
+	name: 'OUT_DST_MAC',
+
+	//Decode to MAC Address
+	decode: decoders.decodeToMACAddress
 }
 
 /*
@@ -653,7 +811,10 @@ Virtual LAN identifier associated with ingress interface
 */
 fields[58] = {
 	length: 2,
-	name: 'SRC_VLAN'
+	name: 'SRC_VLAN',
+
+	//Decode to UInt16
+	decode: decoders.decodeUInt16
 }
 
 /*
@@ -664,7 +825,10 @@ Virtual LAN identifier associated with egress interface
 */
 fields[59] = {
 	length: 2,
-	name: 'DST_VLAN'
+	name: 'DST_VLAN',
+
+	//Decode to UInt16
+	decode: decoders.decodeUInt16
 }
 
 /*
@@ -675,7 +839,10 @@ Internet Protocol Version Set to 4 for IPv4, set to 6 for IPv6. If not present i
 */
 fields[60] = {
 	length: 1,
-	name: ''
+	name: 'IP_PROTOCOL_VERSION',
+
+	//Decode to UInt8
+	decode: decoders.decodeUInt8
 }
 
 /*
@@ -686,7 +853,10 @@ Flow direction: 0 - ingress flow, 1 - egress flow
 */
 fields[61] = {
 	length: 1,
-	name: 'DIRECTION'
+	name: 'DIRECTION',
+
+	//Decode to UInt16
+	decode: decoders.decodeUInt16
 }
 
 /*
@@ -697,7 +867,10 @@ IPv6 address of the next-hop router
 */
 fields[62] = {
 	length: 16,
-	name: 'IPV6_NEXT_HOP'
+	name: 'IPV6_NEXT_HOP',
+
+	//Decode to IPv6
+	decode: decoders.decodeIPv6
 }
 
 /*
@@ -708,7 +881,10 @@ Next-hop router in the BGP domain
 */
 fields[63] = {
 	length: 16,
-	name: 'BPG_IPV6_NEXT_HOP'
+	name: 'BPG_IPV6_NEXT_HOP',
+
+	//Decode to IPv6
+	decode: decoders.decodeIPv6
 }
 
 /*
@@ -719,7 +895,10 @@ Bit-encoded field identifying IPv6 option headers found in the flow
 */
 fields[64] = {
 	length: 4,
-	name: 'IPV6_OPTION_HEADERS'
+	name: 'IPV6_OPTION_HEADERS',
+
+	//Decode to Hex
+	decode: decoders.decodeToHex
 }
 
 /*
@@ -853,7 +1032,10 @@ Incoming destination MAC address
 */
 fields[80] = {
 	length: 6,
-	name: 'IN_DST_MAC'
+	name: 'IN_DST_MAC',
+
+	//Decode to MAC Address
+	decode: decoders.decodeToMACAddress
 }
 
 /*
@@ -864,7 +1046,10 @@ Outgoing source MAC address
 */
 fields[81] = {
 	length: 6,
-	name: 'OUT_SRC_MAC'
+	name: 'OUT_SRC_MAC',
+
+	//Decode to MAC Address
+	decode: decoders.decodeToMACAddress
 }
 
 /*
@@ -875,7 +1060,10 @@ Shortened interface name i.e.: "FE1/0"
 */
 fields[82] = {
 	length: 8,
-	name: 'IF_NAME'
+	name: 'IF_NAME',
+
+	//Unknown encoding. Attempt with ASCII
+	decode: decoders.decodeToASCII
 }
 
 /*
@@ -886,7 +1074,10 @@ Full interface name i.e.: "'FastEthernet 1/0"
 */
 fields[83] = {
 	length: 8,
-	name: 'IF_DESC'
+	name: 'IF_DESC',
+
+	//Unknown encoding. Attempt with ASCII
+	decode: decoders.decodeToASCII
 }
 
 /*
@@ -897,7 +1088,10 @@ Name of the flow sampler
 */
 fields[84] = {
 	length: 8,
-	name: 'SAMPLER_NAME'
+	name: 'SAMPLER_NAME',
+
+	//Unknown encoding. Attempt with ASCII
+	decode: decoders.decodeToASCII
 }
 
 /*
@@ -908,7 +1102,12 @@ Running byte counter for a permanent flow
 */
 fields[85] = {
 	length: 4,
-	name: 'IN_PERMANENT_BYTES'
+	name: 'IN_PERMANENT_BYTES',
+
+	//Unknown size of field, possibly larger
+	//Than javascript limit. Decode to Hex to
+	//be sure
+	decode: decoders.decodeToHex
 }
 
 /*
@@ -919,7 +1118,12 @@ Running packet counter for a permanent flow
 */
 fields[86] = {
 	length: 4,
-	name: 'IN_PERMANENT_PKTS'
+	name: 'IN_PERMANENT_PKTS',
+
+	//Unknown size of field, possibly larger
+	//Than javascript limit. Decode to Hex to
+	//be sure
+	decode: decoders.decodeToHex
 }
 
 /*
@@ -939,7 +1143,10 @@ The fragment-offset value from fragmented IP packets
 */
 fields[88] = {
 	length: 2,
-	name: 'FRAGMENT_OFFSET'
+	name: 'FRAGMENT_OFFSET',
+
+	//Decode to UInt16
+	decode: decoders.decodeUInt16
 }
 
 /*
@@ -992,7 +1199,10 @@ MPLS PAL Route Distinguisher.
 */
 fields[90] = {
 	length: 8,
-	name: 'MPLS_PAL_RD'
+	name: 'MPLS_PAL_RD',
+
+	//Decode to Hex
+	decode: decoders.decodeToHex
 }
 
 /*
@@ -1003,7 +1213,10 @@ Number of consecutive bits in the MPLS prefix length.
 */
 fields[91] = {
 	length: 1,
-	name: 'MPLS_PREFIX_LEN'
+	name: 'MPLS_PREFIX_LEN',
+
+	//Decode to UInt8
+	decode: decoders.decodeUInt8
 }
 
 /*
@@ -1014,7 +1227,10 @@ BGP Policy Accounting Source Traffic Index
 */
 fields[92] = {
 	length: 4,
-	name: 'SRC_TRAFFIC_INDEX'
+	name: 'SRC_TRAFFIC_INDEX',
+
+	//Decode to UInt32
+	decode: decoders.decodeUInt32
 }
 
 /*
@@ -1025,7 +1241,10 @@ BGP Policy Accounting Destination Traffic Index
 */
 fields[93] = {
 	length: 4,
-	name: 'DST_TRAFFIC_INDEX'
+	name: 'DST_TRAFFIC_INDEX',
+
+	//Decode to UInt32
+	decode: decoders.decodeUInt32
 }
 
 /*
@@ -1036,7 +1255,10 @@ Application description.
 */
 fields[94] = {
 	length: 8,
-	name: 'APPLICATION_DESCRIPTION'
+	name: 'APPLICATION_DESCRIPTION',
+
+	//Unknown Encoding. Try with ASCII
+	decode: decoders.decodeToASCII
 }
 
 /*
@@ -1047,7 +1269,10 @@ APPLICATION TAG
 */
 fields[95] = {
 	length: 8,
-	name: 'APPLICATION_TAG'
+	name: 'APPLICATION_TAG',
+
+	//Decode to Hex
+	decode: decoders.decodeToHex
 }
 
 /*
@@ -1058,7 +1283,10 @@ Name associated with a classification.
 */
 fields[96] = {
 	length: 8,
-	name: 'APPLICATION_NAME'
+	name: 'APPLICATION_NAME',
+
+	//Unknown Encoding. Try with ASCII
+	decode: decoders.decodeToASCII
 }
 
 /*
@@ -1069,7 +1297,10 @@ The value of a Differentiated Services Code Point (DSCP) encoded in the Differen
 */
 fields[98] = {
 	length: 1,
-	name: 'postipDiffServCodePoints'
+	name: 'postipDiffServCodePoints',
+
+	//Decode to TOS
+	decode: decoders.decodeTOS
 }
 
 /*
@@ -1080,7 +1311,10 @@ Multicast replication factor.
 */
 fields[99] = {
 	length: 4,
-	name: 'replicationFactor'
+	name: 'replicationFactor',
+
+	//Decode to UInt32
+	decode: decoders.decodeUInt32
 }
 
 /*
@@ -1102,7 +1336,10 @@ layer2packetSectionOffset
  */
 fields[102] = {
 	length: 8,
-	name: ''
+	name: 'layer2packetSectionOffset',
+
+	//Decode to Hex
+	decode: decoders.decodeToHex
 }
 
 /*
@@ -1112,7 +1349,10 @@ layer2packetSectionSize
  */
 fields[103] = {
 	length: 8,
-	name: 'layer2packetSectionSize'
+	name: 'layer2packetSectionSize',
+
+	//Decode to Hex
+	decode: decoders.decodeToHex
 }
 
 /*
@@ -1122,7 +1362,10 @@ Layer 2 packet section data.
 */
 fields[104] = {
 	length: 8,
-	name: 'layer2packetSectionData'
+	name: 'layer2packetSectionData',
+
+	//Decode to Hex
+	decode: decoders.decodeToHex
 }
 
 /*
