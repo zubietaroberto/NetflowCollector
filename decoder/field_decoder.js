@@ -5,6 +5,9 @@ function byteToHex(b) {
   return hexChar[(b >> 4) & 0x0f] + hexChar[b & 0x0f];
 }
 
+//Import the Int64 library for very large Ints
+var Int64 = require('node-int64')
+
 
 module.exports = {
 
@@ -85,6 +88,40 @@ module.exports = {
 	//Transforms four bytes into an UInt
 	decodeUInt32: function(dataBuffer){
 		return dataBuffer.readUInt32BE(0)
+	},
+
+	//Transforms eight bytes into a Number
+	decodeUInt64: function(dataBuffer){
+
+		//UInt64 is not implemented natively in javascript. Need an external library
+		return new Int64(dataBuffer).toNumber()
+	},
+
+	//Transforms up to 8 bytes into an int
+	decodeArbitraryInt: function(dataBuffer){
+
+		if (dataBuffer.length > 8){
+
+			// Too big to parse
+			return module.exports.decodeToHex(dataBuffer)
+		} else if (dataBuffer.length == 8){
+
+			//8 bytes: UInt64
+			return module.exports.decodeUInt64(dataBuffer)
+		} else if (dataBuffer.length >= 4){
+
+			//4 bytes: UInt32
+			return module.exports.decodeUInt32(dataBuffer)
+		} else if (dataBuffer.length >= 2){
+
+			//2 bytes: UInt16
+			return module.exports.decodeUInt16(dataBuffer)
+		} else {
+
+			//1 byte: UInt8
+			return module.exports.decodeUInt8(dataBuffer)
+		}
+
 	},
 
 	//Transform a byte into the TOS

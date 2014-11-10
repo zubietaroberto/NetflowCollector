@@ -24,9 +24,8 @@ fields[1] = {
 	length: 4,
 	name: 'IN_BYTES',
 
-	//Possibility that this field is too big for javascript
-	//to Handle. We will output it as a Hex for now...
-	decode: decoders.decodeToHex
+	//Decode to an arbitrary Int
+	decode: decoders.decodeArbitraryInt
 }
 
 /*
@@ -39,9 +38,8 @@ fields[2] = {
 	length: 4,
 	name: 'IN_PKTS',
 
-	//Possibility that this field is too big for javascript
-	//to Handle. We will output it as a Hex for now...
-	decode: decoders.decodeToHex
+	//Decode to an arbitrary Int
+	decode: decoders.decodeArbitraryInt
 }
 
 
@@ -55,9 +53,8 @@ fields[3] = {
 	length: 4,
 	name: 'FLOWS',
 
-	//Possibility that this field is too big for javascript
-	//to Handle. We will output it as a Hex for now...
-	decode: decoders.decodeToHex
+	//Decode to an arbitrary Int
+	decode: decoders.decodeArbitraryInt
 }
 
 
@@ -265,9 +262,8 @@ fields[19] = {
 	length: 4,
 	name: 'MUL_DST_PKTS',
 
-	//Possibility that this field is too big for javascript
-	//to Handle. We will output it as a Hex for now...
-	decode: decoders.decodeToHex
+	//Decode to an arbitrary Int
+	decode: decoders.decodeArbitraryInt
 
 }
 
@@ -281,9 +277,8 @@ fields[20] = {
 	length: 4,
 	name: 'MUL_DST_BYTES',
 
-	//Possibility that this field is too big for javascript
-	//to Handle. We will output it as a Hex for now...
-	decode: decoders.decodeToHex
+	//Decode to an arbitrary Int
+	decode: decoders.decodeArbitraryInt
 }
 
 /*
@@ -325,9 +320,8 @@ fields[23] = {
 	length: 4,
 	name: 'OUT_BYTES',
 
-	//Possibility that this field is too big for javascript
-	//to Handle. We will output it as a Hex for now...
-	decode: decoders.decodeToHex
+	//Decode to an arbitrary Int
+	decode: decoders.decodeArbitraryInt
 }
 
 /*
@@ -340,9 +334,8 @@ fields[24] = {
 	length: 4,
 	name: 'OUT_PKTS',
 
-	//Possibility that this field is too big for javascript
-	//to Handle. We will output it as a Hex for now...
-	decode: decoders.decodeToHex
+	//Decode to an arbitrary Int
+	decode: decoders.decodeArbitraryInt
 }
 
 /*
@@ -566,9 +559,8 @@ fields[40] = {
 	length: 4,
 	name: 'TOTAL_BYTES_EXP',
 
-	//Possibility that this field is too big for javascript
-	//to Handle. We will output it as a Hex for now...
-	decode: decoders.decodeToHex
+	//Decode to an arbitrary Int
+	decode: decoders.decodeArbitraryInt
 }
 
 /*
@@ -581,9 +573,8 @@ fields[41] = {
 	length: 4,
 	name: 'TOTAL_PKTS_EXP',
 
-	//Possibility that this field is too big for javascript
-	//to Handle. We will output it as a Hex for now...
-	decode: decoders.decodeToHex
+	//Decode to an arbitrary Int
+	decode: decoders.decodeArbitraryInt
 }
 
 /*
@@ -596,9 +587,8 @@ fields[42] = {
 	length: 4,
 	name: 'TOTAL_FLOWS_EXP',
 
-	//Possibility that this field is too big for javascript
-	//to Handle. We will output it as a Hex for now...
-	decode: decoders.decodeToHex
+	//Decode to an arbitrary Int
+	decode: decoders.decodeArbitraryInt
 }
 
 /*
