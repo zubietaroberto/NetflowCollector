@@ -1,5 +1,5 @@
 
-var fieldDictionary = require('./dictionary.js')
+var fieldDictionary = require('./decoder/dictionary.js')
 var templateArray = new Array()
 
 /*
