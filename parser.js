@@ -1,5 +1,6 @@
 
 var fieldDictionary = require('./decoder')
+var database = require('./datastore')
 var templateArray = new Array()
 
 /*
@@ -87,6 +88,16 @@ function parseFlowset(flowsetObject){
 
 		//Log the result
 		console.log(result)
+
+		//Save
+		database.saveFlowset(result, {}, function(err){
+			if (err){
+				console.log(err)
+				return
+			} else {
+				console.log("data saved")
+			}
+		})
 	} else {
 
 		//No data yet

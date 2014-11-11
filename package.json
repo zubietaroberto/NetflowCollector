@@ -4,6 +4,7 @@
   "main": "main.js" ,
   "dependencies": {
     "public": "git://github.com/zubietaroberto/Node-Netflowd.git",
-    "node-int64": "0.3.x"
+    "node-int64": "0.3.x",
+    "mongoskin": "1.4.x"
   }
 }
