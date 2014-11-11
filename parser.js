@@ -50,13 +50,21 @@ function parseOptions(optionsObject){
 /*
 Flowset Data
 */
-function parseFlowset(flowsetObject){
+function parseFlowset(flowsetObject, packetHeader, metadata){
 
 	//Log
 	console.log("Flowset " + flowsetObject.flowset_id + ": Length " + flowsetObject.length)
 
-	// Return the result as an array, with each field's name and each field's value
-	var result = new Array()
+	//Build the reception date
+	var date = new Date(0)
+	date.setUTCSeconds(packetHeader.unix_secs)
+
+	// Return the result as a structure
+	var result = {}
+	result.source_address = metadata.address
+	result.source_id = packetHeader.source_id
+	result.time = date
+	result.data = new Array()
 
 	// Get the correponding template, if it exists.
 	var templateFields = templateArray[flowsetObject.flowset_id]
@@ -71,14 +79,14 @@ function parseFlowset(flowsetObject){
 			var currentBuffer = flowsetObject.flowdata.slice(currentPosition, currentPosition+field.length)
 
 			//Build the corresponding result object
-			result[index] = {}
-			result[index].name = field.name
+			result.data[index] = {}
+			result.data[index].name = field.name
 
 			// Parse the field, if we have a 'decode' function available
 			if (typeof field.decode !== 'undefined'){
-				result[index].value = field.decode(currentBuffer)
+				result.data[index].value = field.decode(currentBuffer)
 			} else {
-				result[index].value = currentBuffer
+				result.data[index].value = currentBuffer
 			}
 
 			//Move the counter
@@ -106,7 +114,9 @@ function mainFunction(packet) {
 	var receptionDate = date.toGMTString()
 
 	//Show Log
-	console.log("\n"+ receptionDate + ": Received packet from source (id: " + packet.header.source_id + ")" )
+	console.log("\n"+ receptionDate + ": Received packet from source (" 
+		+ " id: " + packet.header.source_id 
+		+ " ip: " + packet.metadata.address + ")" )
 
 	//Process the packets only if we are reading Netflow V9
 	if (packet.header.version == 9){
@@ -124,7 +134,7 @@ function mainFunction(packet) {
 			} else {
 
 				//Data
-				parseFlowset(element)
+				parseFlowset(element, packet.header, packet.metadata)
 
 			}
 		})
