@@ -27,7 +27,8 @@ function parseTemplates(templateObject){
 				templateFields[index2] = {
 					length: field.fieldLength,
 					decode: dictionaryElement.decode,
-					name: dictionaryElement.name
+					name: dictionaryElement.name,
+					field_type: field.fieldType
 				}
 			}
 		})
@@ -78,15 +79,16 @@ function parseFlowset(flowsetObject, packetHeader, metadata){
 			// Get the raw data corresponding to this field
 			var currentBuffer = flowsetObject.flowdata.slice(currentPosition, currentPosition+field.length)
 
-			//Build the corresponding result object
-			result.data[index] = {}
-			result.data[index].name = field.name
-
 			// Parse the field, if we have a 'decode' function available
-			if (typeof field.decode !== 'undefined'){
-				result.data[index].value = field.decode(currentBuffer)
-			} else {
-				result.data[index].value = currentBuffer
+			var parsedValue = (typeof field.decode !== 'undefined')?
+				field.decode(currentBuffer):
+				currentBuffer;
+
+			//Build the corresponding result object
+			result.data[index] = {
+				name: field.name,
+				field_type: field.field_type,
+				value: parsedValue
 			}
 
 			//Move the counter
