@@ -100,13 +100,12 @@ function parseFlowset(flowsetObject, packetHeader, metadata){
 		console.log(result)
 
 		//Save
-		database.saveFlowset(result, {}, function(err){
-			if (err){
-				console.log(err)
-				return
-			} else {
-				console.log("data saved")
-			}
+		database.saveFlowset(result, function(err){
+
+			//Display error if it exists
+			(err)?
+				console.log(err):
+				console.log("data saved");
 		})
 	} else {
 

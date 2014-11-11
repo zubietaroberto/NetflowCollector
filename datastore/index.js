@@ -11,7 +11,7 @@ var flowsetCollection = db.collection(collectionName_flowset)
 
 module.exports = {
 
-	saveFlowset: function(flowset, metadata, callback){
-		flowsetCollection.insert(flowset, callback);
+	saveFlowset: function(data, callback){
+		flowsetCollection.insert(data, callback);
 	}
 }
