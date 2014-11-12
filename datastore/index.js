@@ -13,5 +13,9 @@ module.exports = {
 
 	saveFlowset: function(data, callback){
 		flowsetCollection.insert(data, callback);
+	},
+
+	findLatest: function(data, callback){
+		flowsetCollection.find().toArray(callback);
 	}
 }
