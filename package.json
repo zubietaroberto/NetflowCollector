@@ -7,6 +7,7 @@
 
 	"scripts": {
 		"startApi": "node ./bin/www.js",
+		"debugApi": "node-debug ./bin/www.js",
 		"startCollector": "node ./bin/collector.js"
 	},
 
@@ -16,6 +17,7 @@
 		"mongoskin": "1.4.x",
 		"express": "4.10.x",
 		"jade": "1.6.x",
-		"sass": "0.5.x"
+		"sass": "0.5.x",
+		"morgan": "1.5.x"
 	}
 }
