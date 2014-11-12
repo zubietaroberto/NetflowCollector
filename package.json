@@ -1,10 +1,21 @@
 {
-  "name": "Netflow-Collector",
-  "version": "0.2.0",
-  "main": "main.js" ,
-  "dependencies": {
-    "public": "git://github.com/zubietaroberto/Node-Netflowd.git",
-    "node-int64": "0.3.x",
-    "mongoskin": "1.4.x"
-  }
+	"name": "Netflow-Collector",
+	"version": "0.2.0",
+	"description": "Netflow collector and cosultation API...",
+	"author": "Roberto Eduardo Zubieta <zubieta.roberto.e@gmail.com>",
+	"repository": "https://github.com/zubietaroberto/NetflowCollector",
+
+	"scripts": {
+		"startApi": "node ./bin/www.js",
+		"startCollector": "node ./bin/collector.js"
+	},
+
+	"dependencies": {
+		"public": "git://github.com/zubietaroberto/Node-Netflowd.git",
+		"node-int64": "0.3.x",
+		"mongoskin": "1.4.x",
+		"express": "4.10.x",
+		"jade": "1.6.x",
+		"sass": "0.5.x"
+	}
 }

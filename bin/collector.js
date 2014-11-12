@@ -3,8 +3,7 @@ Dependencies
 */
 
 var Collector = require('Netflow');
-var Receiver = require('./parser.js');
-
+var Receiver = require('../parser');
 
 var x = new Collector(function (err) {
     if(err != null) {
