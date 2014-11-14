@@ -16,6 +16,6 @@ module.exports = {
 	},
 
 	findLatest: function(data, callback){
-		flowsetCollection.find().toArray(callback);
+	    flowsetCollection.find({}, null, data).toArray(callback);
 	}
 }
