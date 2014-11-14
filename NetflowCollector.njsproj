@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{a050f7db-c820-4fc1-aac3-afaa0db56a0c}</ProjectGuid>
+    <ProjectHome />
+    <ProjectView>ShowAllFiles</ProjectView>
+    <StartupFile>bin\www.js</StartupFile>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Content Include="package.json" />
+    <Compile Include="parser.js" />
+    <Compile Include="api\index.js" />
+    <Compile Include="bin\collector.js" />
+    <Compile Include="bin\www.js" />
+    <Compile Include="datastore\index.js" />
+    <Compile Include="decoder\dictionary.js" />
+    <Compile Include="decoder\field_decoder.js" />
+    <Compile Include="decoder\index.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".git" />
+    <Folder Include=".git\hooks" />
+    <Folder Include=".git\info" />
+    <Folder Include=".git\logs" />
+    <Folder Include=".git\logs\refs" />
+    <Folder Include=".git\logs\refs\heads" />
+    <Folder Include=".git\logs\refs\remotes" />
+    <Folder Include=".git\logs\refs\remotes\origin" />
+    <Folder Include=".git\objects" />
+    <Folder Include=".git\objects\00" />
+    <Folder Include=".git\objects\01" />
+    <Folder Include=".git\objects\02" />
+    <Folder Include=".git\objects\03" />
+    <Folder Include=".git\objects\04" />
+    <Folder Include=".git\objects\05" />
+    <Folder Include=".git\objects\07" />
+    <Folder Include=".git\objects\08" />
+    <Folder Include=".git\objects\09" />
+    <Folder Include=".git\objects\0b" />
+    <Folder Include=".git\objects\0c" />
+    <Folder Include=".git\objects\0d" />
+    <Folder Include=".git\objects\0e" />
+    <Folder Include=".git\objects\0f" />
+    <Folder Include=".git\objects\10" />
+    <Folder Include=".git\objects\11" />
+    <Folder Include=".git\objects\12" />
+    <Folder Include=".git\objects\13" />
+    <Folder Include=".git\objects\15" />
+    <Folder Include=".git\objects\16" />
+    <Folder Include=".git\objects\1a" />
+    <Folder Include=".git\objects\1d" />
+    <Folder Include=".git\objects\1f" />
+    <Folder Include=".git\objects\20" />
+    <Folder Include=".git\objects\28" />
+    <Folder Include=".git\objects\29" />
+    <Folder Include=".git\objects\2b" />
+    <Folder Include=".git\objects\2f" />
+    <Folder Include=".git\objects\35" />
+    <Folder Include=".git\objects\36" />
+    <Folder Include=".git\objects\41" />
+    <Folder Include=".git\objects\43" />
+    <Folder Include=".git\objects\4c" />
+    <Folder Include=".git\objects\4d" />
+    <Folder Include=".git\objects\4e" />
+    <Folder Include=".git\objects\4f" />
+    <Folder Include=".git\objects\50" />
+    <Folder Include=".git\objects\51" />
+    <Folder Include=".git\objects\53" />
+    <Folder Include=".git\objects\58" />
+    <Folder Include=".git\objects\5c" />
+    <Folder Include=".git\objects\5d" />
+    <Folder Include=".git\objects\5f" />
+    <Folder Include=".git\objects\61" />
+    <Folder Include=".git\objects\62" />
+    <Folder Include=".git\objects\64" />
+    <Folder Include=".git\objects\65" />
+    <Folder Include=".git\objects\69" />
+    <Folder Include=".git\objects\6e" />
+    <Folder Include=".git\objects\6f" />
+    <Folder Include=".git\objects\73" />
+    <Folder Include=".git\objects\74" />
+    <Folder Include=".git\objects\77" />
+    <Folder Include=".git\objects\7a" />
+    <Folder Include=".git\objects\7c" />
+    <Folder Include=".git\objects\81" />
+    <Folder Include=".git\objects\82" />
+    <Folder Include=".git\objects\85" />
+    <Folder Include=".git\objects\88" />
+    <Folder Include=".git\objects\89" />
+    <Folder Include=".git\objects\8b" />
+    <Folder Include=".git\objects\8f" />
+    <Folder Include=".git\objects\90" />
+    <Folder Include=".git\objects\91" />
+    <Folder Include=".git\objects\98" />
+    <Folder Include=".git\objects\99" />
+    <Folder Include=".git\objects\9b" />
+    <Folder Include=".git\objects\9c" />
+    <Folder Include=".git\objects\a1" />
+    <Folder Include=".git\objects\a2" />
+    <Folder Include=".git\objects\a3" />
+    <Folder Include=".git\objects\a5" />
+    <Folder Include=".git\objects\a6" />
+    <Folder Include=".git\objects\b0" />
+    <Folder Include=".git\objects\b2" />
+    <Folder Include=".git\objects\b5" />
+    <Folder Include=".git\objects\b6" />
+    <Folder Include=".git\objects\b7" />
+    <Folder Include=".git\objects\be" />
+    <Folder Include=".git\objects\c0" />
+    <Folder Include=".git\objects\c3" />
+    <Folder Include=".git\objects\c5" />
+    <Folder Include=".git\objects\c8" />
+    <Folder Include=".git\objects\ce" />
+    <Folder Include=".git\objects\d0" />
+    <Folder Include=".git\objects\d5" />
+    <Folder Include=".git\objects\d9" />
+    <Folder Include=".git\objects\da" />
+    <Folder Include=".git\objects\db" />
+    <Folder Include=".git\objects\df" />
+    <Folder Include=".git\objects\e0" />
+    <Folder Include=".git\objects\e2" />
+    <Folder Include=".git\objects\e3" />
+    <Folder Include=".git\objects\e5" />
+    <Folder Include=".git\objects\e6" />
+    <Folder Include=".git\objects\e7" />
+    <Folder Include=".git\objects\e8" />
+    <Folder Include=".git\objects\eb" />
+    <Folder Include=".git\objects\ed" />
+    <Folder Include=".git\objects\ef" />
+    <Folder Include=".git\objects\f0" />
+    <Folder Include=".git\objects\f3" />
+    <Folder Include=".git\objects\f4" />
+    <Folder Include=".git\objects\f9" />
+    <Folder Include=".git\objects\ff" />
+    <Folder Include=".git\objects\info" />
+    <Folder Include=".git\objects\pack" />
+    <Folder Include=".git\refs" />
+    <Folder Include=".git\refs\heads" />
+    <Folder Include=".git\refs\remotes" />
+    <Folder Include=".git\refs\remotes\origin" />
+    <Folder Include=".git\refs\tags" />
+    <Folder Include="api" />
+    <Folder Include="bin" />
+    <Folder Include="datastore" />
+    <Folder Include="decoder" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
