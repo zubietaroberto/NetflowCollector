@@ -4,3 +4,4 @@ obj
 
 #Files
 npm-debug.log
+*.suo
