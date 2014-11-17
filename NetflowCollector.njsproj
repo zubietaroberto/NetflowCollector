@@ -17,7 +17,9 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
     <Content Include="frontend\public\stylesheets\style.less" />
+    <Content Include="frontend\views\index.jade" />
     <Content Include="package.json" />
+    <Compile Include="frontend\apiRouter.js" />
     <Compile Include="frontend\frontendRouter.js" />
     <Compile Include="frontend\index.js" />
     <Compile Include="parser.js" />
