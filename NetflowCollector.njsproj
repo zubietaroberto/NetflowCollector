@@ -16,11 +16,11 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Content Include="frontend\public\stylesheets\style.less" />
     <Content Include="package.json" />
     <Compile Include="frontend\frontendRouter.js" />
     <Compile Include="frontend\index.js" />
     <Compile Include="parser.js" />
-    <Compile Include="api\index.js" />
     <Compile Include="bin\collector.js" />
     <Compile Include="bin\www.js" />
     <Compile Include="datastore\index.js" />
@@ -150,12 +150,12 @@
     <Folder Include=".git\refs\remotes" />
     <Folder Include=".git\refs\remotes\origin" />
     <Folder Include=".git\refs\tags" />
-    <Folder Include="api" />
     <Folder Include="bin" />
     <Folder Include="datastore" />
     <Folder Include="decoder" />
     <Folder Include="frontend\" />
     <Folder Include="frontend\public\" />
+    <Folder Include="frontend\public\stylesheets\" />
     <Folder Include="frontend\views\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
