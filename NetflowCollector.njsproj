@@ -17,6 +17,8 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
     <Content Include="package.json" />
+    <Compile Include="frontend\frontendRouter.js" />
+    <Compile Include="frontend\index.js" />
     <Compile Include="parser.js" />
     <Compile Include="api\index.js" />
     <Compile Include="bin\collector.js" />
@@ -152,6 +154,9 @@
     <Folder Include="bin" />
     <Folder Include="datastore" />
     <Folder Include="decoder" />
+    <Folder Include="frontend\" />
+    <Folder Include="frontend\public\" />
+    <Folder Include="frontend\views\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
