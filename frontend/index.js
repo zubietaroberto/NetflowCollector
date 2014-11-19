@@ -4,6 +4,7 @@ var morgan = require('morgan');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var minify = require('express-minify')
 
 
     //Import Routers
@@ -12,6 +13,18 @@ var frontendRouter = require('./frontendRouter');
 
     //Logging middleware
 app.use(morgan('dev'));
+
+//Auto Minify
+app.use(minify(
+{
+    js_match: /javascript/,
+    css_match: /css/,
+    sass_match: /scss/,
+    less_match: /less/,
+    stylus_match: /stylus/,
+    coffee_match: /coffeescript/,
+    cache: false
+}))
 
 // Parser Middleware
 app.use(bodyParser.json());
