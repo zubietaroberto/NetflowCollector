@@ -1,6 +1,6 @@
 {
 	"name": "Netflow-Collector",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"description": "Netflow collector and cosultation API...",
 	"author": "Roberto Eduardo Zubieta <zubieta.roberto.e@gmail.com>",
 	"repository": "https://github.com/zubietaroberto/NetflowCollector",
