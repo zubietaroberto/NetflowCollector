@@ -18,10 +18,12 @@
   <ItemGroup>
     <Content Include="frontend\public\stylesheets\style.less" />
     <Content Include="frontend\views\index.jade" />
+    <Content Include="frontend\views\layout.jade" />
     <Content Include="package.json" />
     <Compile Include="frontend\apiRouter.js" />
     <Compile Include="frontend\frontendRouter.js" />
     <Compile Include="frontend\index.js" />
+    <Compile Include="frontend\public\javascript\main.js" />
     <Compile Include="parser.js" />
     <Compile Include="bin\collector.js" />
     <Compile Include="bin\www.js" />
@@ -157,6 +159,7 @@
     <Folder Include="decoder" />
     <Folder Include="frontend\" />
     <Folder Include="frontend\public\" />
+    <Folder Include="frontend\public\javascript\" />
     <Folder Include="frontend\public\stylesheets\" />
     <Folder Include="frontend\views\" />
   </ItemGroup>

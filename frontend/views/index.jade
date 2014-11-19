@@ -2,6 +2,11 @@ extends layout
 
 block content
 
-    div.container-fluid
+    .container-fluid
         h1.page-header Test data
-        table#data-table
+        #spinner
+            i.fa.fa-cog.fa-spin.fa-5x#spinner-inner
+        table.table#data-table
+
+block scripts
+    script(src='/javascript/main.js')
