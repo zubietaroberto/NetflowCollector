@@ -4,9 +4,17 @@ block content
 
     .container-fluid
         h1.page-header Test data
-        #spinner
+
+    .container-fluid
+        .container#spinner
             i.fa.fa-cog.fa-spin.fa-5x#spinner-inner
-        table.table#data-table
+        .row
+            .col-md-6#chartdiv
+            .col-md-6
+                table.table#data-table
 
 block scripts
+    script(src='/javascript/amcharts/amcharts.js')
+    script(src='/javascript/amcharts/serial.js')
+    script(src='http://www.amcharts.com/lib/3/themes/none.js')
     script(src='/javascript/main.js')
