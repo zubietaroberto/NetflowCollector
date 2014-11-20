@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+    .container
+        h1.page-header Tabla
+        p Despliega los documentos guardados en la base de datos. 
+
+    .container
+        table.table#data-table
+            thead: tr
+                th _ID
+                th Fecha
+                th Source ID
+                th Bytes
+            
+            tbody
+                //- This will create a new row for each item in the 'data' array
+                each dataRow in data
+                    tr
+                        td= dataRow._id
+                        td= new Date(dataRow.measured_time).toGMTString()
+                        td= dataRow.source_address + " - " + dataRow.source_id
+                        td= dataRow["IN_BYTES"]
+

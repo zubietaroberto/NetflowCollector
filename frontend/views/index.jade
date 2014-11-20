@@ -2,19 +2,23 @@ extends layout
 
 block content
 
-    .container-fluid
-        h1.page-header Test data
-
-    .container-fluid
-        .container#spinner
-            i.fa.fa-cog.fa-spin.fa-5x#spinner-inner
+    .container
         .row
-            .col-md-6#chartdiv
-            .col-md-6
-                table.table#data-table
+            .col-md-9.col-sm-6
+                h1.page-header Flowset Explorer
+                p Esta aplicación demuestra las funciones que se pueden realizar con el API del colector. 
+                    |  Se pueden generar gráficas y tablas. Se pueden filtrar u ordenar los datos. Se puede incluso
+                    |  combinar varios de estos métodos para generar sets complejos de datos. La imaginación del
+                    |  desarrollador es el límite
+
+                p
+                    strong Creado por:
+                    |  Roberto E. Zubieta
+
+
+            .col-md-3.col-sm-6
+                .g-person(data-href="//plus.google.com/u/0/105524772414753584405", data-rel="author")
 
 block scripts
-    script(src='/javascript/amcharts/amcharts.js')
-    script(src='/javascript/amcharts/serial.js')
-    script(src='http://www.amcharts.com/lib/3/themes/none.js')
-    script(src='/javascript/main.js')
+    script(src="https://apis.google.com/js/platform.js", async, defer).
+        {lang: 'es'}

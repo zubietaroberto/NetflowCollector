@@ -26,8 +26,12 @@ app.use(express.static(path.join(__dirname, 'public')));
     //LESS configuration
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 
+
+app.get('/', function (req, res){
+	res.redirect('/frontend')
+})
     //Root route
-app.get('/', frontendRouter);
+app.use('/frontend', frontendRouter);
 
     //Router for the API
 app.use('/api', apiRouter);
