@@ -65,8 +65,7 @@ function parseFlowset(flowsetObject, packetHeader, metadata){
 	var result = {}
 	result.source_address = metadata.address
 	result.source_id = packetHeader.source_id
-	result.time = date
-	result.data = new Array()
+	result.measured_time = date;
 
 	// Get the correponding template, if it exists.
 	var templateFields = templateArray[flowsetObject.flowset_id]
@@ -85,12 +84,8 @@ function parseFlowset(flowsetObject, packetHeader, metadata){
 				field.decode(currentBuffer):
 				currentBuffer;
 
-			//Build the corresponding result object
-			result.data[index] = {
-				name: field.name,
-				field_type: field.field_type,
-				value: parsedValue
-			}
+			//Save the result with the correct name
+			result[field.name] = parsedValue
 
 			//Move the counter
 			currentPosition = currentPosition + field.length

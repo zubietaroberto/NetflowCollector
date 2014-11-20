@@ -1,17 +1,4 @@
-﻿
-// Function to extract the number of bytes in the data
-function getBytes(data){
-			
-	var result = "N/A"
-
-	data.forEach(function(value, index){
-		if (value.field_type == 1){
-			result = value.value;
-		}
-	})
-	
-	return result;
-}
+﻿var dateFormat = "YYYY-MM-DD HH:MM:SS"
 
 // Function to build the template of the <table> element. Each object is a different column.
 function buildColumns(){
@@ -30,7 +17,7 @@ function buildColumns(){
 	result.push({
 		header: "Date",
 		data: function(value){
-			return AmCharts.formatDate(new Date(value.time), "YYYY-MM-DD HH:MM:SS:QQ");
+			return AmCharts.formatDate(new Date(value.measured_time), dateFormat);
 		}
 	});
 
@@ -46,7 +33,7 @@ function buildColumns(){
 	result.push({
 		header: "Bytes",
 		data: function(value){
-			return getBytes(value.data)
+			return value["IN_BYTES"]
 		}
 	});
 
@@ -105,8 +92,8 @@ jQuery(document).ready(function ($) {
 
             	//Add to the Dataprovider
             	dataProvider.push({
-            		date: new Date(value.time),
-            		value: getBytes(value.data)
+            		date: new Date(value.measured_time),
+            		value: value["IN_BYTES"]
             	});
 
 			});
@@ -136,11 +123,11 @@ jQuery(document).ready(function ($) {
 				},
 			    "chartScrollbar": {},
 			    "chartCursor": {
-			        "categoryBalloonDateFormat": "YYYY-MM-DD HH:MM:SS:QQ",
+			        "categoryBalloonDateFormat": dateFormat,
 			        "cursorAlpha": 0,
 			        "cursorPosition": "mouse"
 			    },
-			    "dataDateFormat": "YYYY-MM-DD HH:MM:SS:QQ",
+			    "dataDateFormat": dateFormat,
 			    "categoryField": "date",
 			    "categoryAxis": {
 			    	"minPeriod": "fff",
