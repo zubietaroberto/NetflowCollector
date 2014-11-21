@@ -16,6 +16,7 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="frontend\public\javascript\amcharts\images\dragIcon.gif" />
     <Content Include="frontend\public\javascript\amcharts\images\dragIconBlack.gif" />
     <Content Include="frontend\public\javascript\amcharts\images\dragIconH.gif" />
@@ -74,8 +75,10 @@
     <Content Include="frontend\public\javascript\amcharts\patterns\white\pattern8.png" />
     <Content Include="frontend\public\javascript\amcharts\patterns\white\pattern9.png" />
     <Content Include="frontend\public\stylesheets\style.less" />
+    <Content Include="frontend\views\graph.jade" />
     <Content Include="frontend\views\index.jade" />
     <Content Include="frontend\views\layout.jade" />
+    <Content Include="frontend\views\table.jade" />
     <Content Include="package.json" />
     <Compile Include="frontend\apiRouter.js" />
     <Compile Include="frontend\frontendRouter.js" />
@@ -126,7 +129,7 @@
     <Compile Include="frontend\public\javascript\amcharts\themes\light.js" />
     <Compile Include="frontend\public\javascript\amcharts\themes\patterns.js" />
     <Compile Include="frontend\public\javascript\amcharts\xy.js" />
-    <Compile Include="frontend\public\javascript\main.js" />
+    <Compile Include="frontend\public\javascript\graph.js" />
     <Compile Include="parser.js" />
     <Compile Include="bin\collector.js" />
     <Compile Include="bin\www.js" />

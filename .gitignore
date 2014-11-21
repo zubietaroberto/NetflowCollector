@@ -5,3 +5,7 @@ obj
 #Files
 npm-debug.log
 *.suo
+
+#Weird Files from VS2013
+*.dll
+.ntvs_analysis.dat
