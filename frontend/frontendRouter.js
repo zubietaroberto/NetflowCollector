@@ -47,11 +47,32 @@ router.get('/table', function (req, res){
 
 //Protocols Route
 router.get('/protocols', function (req, res) {
-    res.send('Not implemented yet');
+    
+    var variable = "PROTOCOL";
+
+    database.countBytesByField(variable, function (err, result) {
+        (err)?
+			(res.status(500).send(err)):
+			(res.render('pie.jade', {
+                title: variable,
+                variable: variable,
+                data: result
+            }));
+    });
 });
 
 router.get('/addresses', function (req, res) {
-    res.send('Not implemented yet');
+    var variable = "IPV4_SRC_ADDR";
+    
+    database.countBytesByField(variable, function (err, result) {
+        (err)?
+			(res.status(500).send(err)):
+			(res.render('pie.jade', {
+                title: variable,
+                variable: variable,
+                data: result
+        }));
+    });
 });
 
 module.exports = router;

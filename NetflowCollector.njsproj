@@ -78,6 +78,7 @@
     <Content Include="frontend\views\graph.jade" />
     <Content Include="frontend\views\index.jade" />
     <Content Include="frontend\views\layout.jade" />
+    <Content Include="frontend\views\pie.jade" />
     <Content Include="frontend\views\table.jade" />
     <Content Include="package.json" />
     <Compile Include="frontend\apiRouter.js" />

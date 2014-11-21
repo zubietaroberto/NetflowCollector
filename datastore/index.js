@@ -17,5 +17,15 @@ module.exports = {
 
 	findLatest: function(data, callback){
 	    flowsetCollection.find({}, null, data).toArray(callback);
-	}
+    },
+
+    findDistinct: function (fieldname, callback) {
+        flowsetCollection.distinct(fieldname, callback);
+    },
+
+    countBytesByField: function (field_name, callback) {
+        var field = "$" + field_name;
+        var data = ([{ $group : { _id : field, count: { $sum : "$IN_BYTES"} } }]);
+        flowsetCollection.aggregate(data, callback);
+    }
 }
