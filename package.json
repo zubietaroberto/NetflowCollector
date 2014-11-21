@@ -12,11 +12,11 @@
 	},
 
 	"dependencies": {
-		"public": "git://github.com/zubietaroberto/Node-Netflowd.git",
+		"Netflow": "git://github.com/zubietaroberto/Node-Netflowd.git",
 		"node-int64": "0.3.x",
 		"mongoskin": "1.4.x",
 		"express": "4.10.x",
-		"jade": "1.6.x",
+		"jade": "1.7.x",
 		"less-middleware": "1.0.x",
         "morgan": "1.5.x",
         "body-parser": "1.9.x",
