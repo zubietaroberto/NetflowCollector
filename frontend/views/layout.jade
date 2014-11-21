@@ -35,12 +35,23 @@ html(lang="es")
                 //- Navbar links
                 .collapse.navbar-collapse#navbar-1
                     ul.nav.navbar-nav
-                        li: a(href="/frontend/graph") 
-                            i.fa.fa-line-chart
-                            |  Gráfica
+
+                        //- Link to "tabla"
                         li: a(href="/frontend/table")
                             i.fa.fa-table 
                             |  Tabla
+
+                        //- Graphs dropdown
+                        li.dropdown
+                            a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-expanded="false")
+                                i.fa.fa-line-chart
+                                |  Gráficas 
+                                span.caret
+
+                            ul.dropdown-menu(role="menu")
+                                li: a(href="/frontend/graph") Bytes totales
+                                li: a(href="/frontend/protocols") Protocolos
+                                li: a(href="/frontend/addresses") Direcciones
 
         block content
         
@@ -49,6 +60,7 @@ html(lang="es")
         
         //- Twitter Bootstrap
         script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js')
+        script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css')
 
         block scripts
 

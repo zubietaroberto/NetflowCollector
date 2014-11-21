@@ -45,4 +45,13 @@ router.get('/table', function (req, res){
 
 });
 
+//Protocols Route
+router.get('/protocols', function (req, res) {
+    res.send('Not implemented yet');
+});
+
+router.get('/addresses', function (req, res) {
+    res.send('Not implemented yet');
+});
+
 module.exports = router;
