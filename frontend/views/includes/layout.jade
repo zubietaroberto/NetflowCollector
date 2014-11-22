@@ -19,39 +19,8 @@ html(lang="es")
 
 
     body
-        nav.navbar.navbar-default.navbar-fixed-top(role="navigation")
-            .container-fluid
-
-                //- Brand and toggle get grouped for better mobile display
-                .navbar-header
-                    button.navbar-toggle.collapsed(type="button", data-toggle="collapse", data-target="#navbar-1")
-                        span.sr-only Toggle navigation
-                        span.icon-bar
-                        span.icon-bar
-                        span.icon-bar
-                    a.navbar-brand(href="/") Flowset Explorer
-
-
-                //- Navbar links
-                .collapse.navbar-collapse#navbar-1
-                    ul.nav.navbar-nav
-
-                        //- Link to "tabla"
-                        li: a(href="/frontend/table")
-                            i.fa.fa-table 
-                            |  Tabla
-
-                        //- Graphs dropdown
-                        li.dropdown
-                            a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-expanded="false")
-                                i.fa.fa-line-chart
-                                |  Gráficas 
-                                span.caret
-
-                            ul.dropdown-menu(role="menu")
-                                li: a(href="/frontend/graph") Bytes totales
-                                li: a(href="/frontend/protocols") Protocolos
-                                li: a(href="/frontend/addresses") Direcciones
+        //- Navbar.jade has all the Navbar structure
+        include navbar
 
         block content
         
