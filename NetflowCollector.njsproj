@@ -131,6 +131,7 @@
     <Compile Include="frontend\public\javascript\amcharts\themes\patterns.js" />
     <Compile Include="frontend\public\javascript\amcharts\xy.js" />
     <Compile Include="frontend\public\javascript\graph.js" />
+    <Compile Include="frontend\public\javascript\piechart.js" />
     <Compile Include="parser.js" />
     <Compile Include="bin\collector.js" />
     <Compile Include="bin\www.js" />

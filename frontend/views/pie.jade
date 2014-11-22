@@ -3,8 +3,8 @@ extends layout
 block content
 
     .container
-        h1.page-header Gráfica de Pastel - #{variable}
-        p Muestra la distribución de los distintos valores de #{variable} en la base de datos
+        h1.page-header Grafica de Pastel - #{variable}
+        p Muestra la distribucion de los distintos valores de #{variable} en la base de datos
 
 
     .container#chartdiv
@@ -15,5 +15,6 @@ block content
 
 block scripts
     script(src='/javascript/amcharts/amcharts.js')
-    script(src='/javascript/amcharts/serial.js')
+    script(src='/javascript/amcharts/pie.js')
     script(src='//www.amcharts.com/lib/3/themes/none.js')
+    script(src="/javascript/piechart.js")
