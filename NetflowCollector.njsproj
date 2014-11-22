@@ -76,8 +76,9 @@
     <Content Include="frontend\public\javascript\amcharts\patterns\white\pattern9.png" />
     <Content Include="frontend\public\stylesheets\style.less" />
     <Content Include="frontend\views\graph.jade" />
+    <Content Include="frontend\views\includes\layout.jade" />
+    <Content Include="frontend\views\includes\navbar.jade" />
     <Content Include="frontend\views\index.jade" />
-    <Content Include="frontend\views\layout.jade" />
     <Content Include="frontend\views\pie.jade" />
     <Content Include="frontend\views\table.jade" />
     <Content Include="package.json" />
@@ -279,6 +280,7 @@
     <Folder Include="frontend\public\javascript\amcharts\themes\" />
     <Folder Include="frontend\public\stylesheets\" />
     <Folder Include="frontend\views\" />
+    <Folder Include="frontend\views\includes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
