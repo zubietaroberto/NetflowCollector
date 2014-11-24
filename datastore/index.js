@@ -25,7 +25,10 @@ module.exports = {
 
     countBytesByField: function (field_name, callback) {
         var field = "$" + field_name;
-        var data = ([{ $group : { _id : field, count: { $sum : "$IN_BYTES"} } }]);
+        var data = ([
+            { $group :  { _id : field, count: { $sum : "$IN_BYTES" } } },
+            { $sort:    { _id: 1 }}
+        ]);
         flowsetCollection.aggregate(data, callback);
     }
 }

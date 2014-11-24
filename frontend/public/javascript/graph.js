@@ -9,8 +9,8 @@ jQuery(document).ready(function ($){
 
     	//Add to the Dataprovider
     	dataProvider.push({
-    		date: new Date(value.measured_time),
-    		value: value["IN_BYTES"]
+    		date: new Date(value._id),
+    		value: value.count
     	});
 	});
 

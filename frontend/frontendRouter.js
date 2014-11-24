@@ -15,7 +15,7 @@ router.get('/', function (req, res) {
 router.get('/graph', function (req, res) {
 
 	// Pass the query parameters into the driver. There is no danger of SQL Injection.
-	database.findLatest(req.query, function(err, result){
+	database.countBytesByField('measured_time', function(err, result){
 
 		(err)?
 			(res.status(500).send(err)):
