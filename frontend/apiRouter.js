@@ -6,7 +6,7 @@ var router = express.Router();
 //Database
 var database = require('../datastore')
 
-//Routes
+//GET all flowsets
 router.get('/', function (req, res) {
 
     // Pass the query parameters into the driver. There is no danger of SQL Injection.
@@ -17,6 +17,28 @@ router.get('/', function (req, res) {
 			(res.json(result))
 
 	})
+});
+
+//GET total Bytes per Field
+router.get('/count_bytes', function (req, res) {
+
+    // Get the field name
+    var fieldName = req.query.field_name;
+
+    if (typeof fieldname !== 'undefined') {
+        
+        //Bad Request
+        res.status(400).send('field_name must be defined');
+    } else {
+        
+        //Request from the database
+        database.countBytesByField(fieldName, function (err, data) {
+
+            (err)?
+                (res.status(500).sen(err)):
+                (res.json(data));
+        });
+    }
 });
 
 module.exports = router;
