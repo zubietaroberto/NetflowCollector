@@ -41,4 +41,28 @@ router.get('/count_bytes', function (req, res) {
     }
 });
 
+//GET disctinct values of a field
+router.get('/distinct', function (req, res) {
+
+    // Get the field name
+    var fieldName = req.query.field_name;
+    
+    if (typeof fieldname !== 'undefined') {
+        
+        //Bad Request
+        res.status(400).send('field_name must be defined');
+    } else {
+        
+        //Request from the database
+        database.findDistinct(fieldName, function (err, data) {
+            
+            (err)?
+                (res.status(500).sen(err)):
+                (res.json(data));
+        });
+    }
+
+
+});
+
 module.exports = router;
