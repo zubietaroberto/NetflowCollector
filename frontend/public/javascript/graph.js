@@ -1,4 +1,4 @@
-var dateFormat = "YYYY-MM-DD HH:MM:SS"
+var dateFormat = "YYYY-MMM-DD HH:NN:SS"
 
 jQuery(document).ready(function ($){
 
