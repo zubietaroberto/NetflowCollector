@@ -25,7 +25,7 @@ router.get('/count_bytes', function (req, res) {
     // Get the field name
     var fieldName = req.query.field_name;
 
-    if (typeof fieldname !== 'undefined') {
+    if (typeof fieldName == 'undefined') {
         
         //Bad Request
         res.status(400).send('field_name must be defined');
@@ -47,7 +47,7 @@ router.get('/distinct', function (req, res) {
     // Get the field name
     var fieldName = req.query.field_name;
     
-    if (typeof fieldname !== 'undefined') {
+    if (typeof fieldName == 'undefined') {
         
         //Bad Request
         res.status(400).send('field_name must be defined');
