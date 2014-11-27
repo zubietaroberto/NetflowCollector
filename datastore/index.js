@@ -16,7 +16,7 @@ module.exports = {
 	},
 
 	findLatest: function(data, callback){
-	    flowsetCollection.find({}, null, data).toArray(callback);
+	    flowsetCollection.find(data).toArray(callback);
     },
 
     findDistinct: function (fieldname, callback) {
