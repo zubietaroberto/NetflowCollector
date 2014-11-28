@@ -1,9 +1,7 @@
 NetflowCollector
 =================
 
-by: Roberto Eduardo Zubieta
-Panama City, Panamá
-<https://plus.google.com/u/0/105524772414753584405>
+[Roberto Eduardo Zubieta] [3] (Panama City, Panamá)
 
 Synopsis
 --------
@@ -42,3 +40,4 @@ Acknowledgements
 
 [1]: http://nodejs.org/
 [2]: https://github.com/Sghazzawi/Node-Netflowd
+[3]: https://plus.google.com/u/0/105524772414753584405
